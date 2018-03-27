@@ -1,0 +1,23 @@
+Pierwszy punkt kontrolny:
+    x = 4
+    i = w tym momencie nie istnieje (istnieje tylko w scopie petli)
+    y = niezainicjowana
+
+Drugi punkt kontrolny:
+    pierwsza iteracja:
+        x = 3
+        i = 0
+        y = 1
+    druga iteracja:
+        x = 3
+        i = 1
+        y = 2
+    trzecia iteracja:
+        x = 3
+        i = 2
+        y = 3
+
+Trzeci punkt kontrolny:
+    x = 3
+    i = nie znaleziono (zostaje w scopie petli)
+    y = 3

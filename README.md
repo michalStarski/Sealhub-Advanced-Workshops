@@ -1,2 +1,2 @@
-# Sealhub-Advanced-Workshops
-Continuation of Sealhub worshops
+# Sealcode-Advanced-Workshops
+Continuation of Sealcode worshops

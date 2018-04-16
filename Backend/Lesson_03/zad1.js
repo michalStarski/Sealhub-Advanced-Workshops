@@ -21,46 +21,46 @@ setTimeout(()=> {
 
     console.log(`${day}-${month}-${year} ${hours}:${minutes}:${seconds}`);
 
-    //Callbacks
-    fs.open(file, 'a', (error,fd) => {
-        if(error)
-            throw 'Error!'.america;
-
-        fs.appendFile(file,`${day}-${month}-${year} ${hours}:${minutes}:${seconds}\n`, err => {
-           if(err)
-               throw 'Error!'.america;
-        });
-
-        fs.close(fd , error => {
-            if(error)
-                throw 'Error!'.america;
-        });
-    })
-
-    //Promises (Works but throws an error)
-    // let p = new Promise((resolve, reject) => {
-    //     fs.open(file, 'a', (error, fd) => {
-    //        if(error)
-    //            throw '-------------Error---------------'.red;
-    //        resolve(fd);
-    //        reject('-------------Error---------------'.red);
-    //     });
-    // });
+    // //Callbacks
+    // fs.open(file, 'a', (error,fd) => {
+    //     if(error)
+    //         throw 'Error!'.america;
     //
-    //     p.then((response)=> {
-    //       fs.appendFile(file,`${day}-${month}-${year} ${hours}:${minutes}:${seconds}\n`, error=> {
-    //          if(error)
-    //              throw '-------------Error---------------'.red;
-    //          console.log(response);
-    //          resolve(response);
-    //       });
-    //     })
-    //     .then((response) => {
-    //         fs.close(response, error => {
-    //            if(error)
-    //                throw '-------------Error---------------'.red;
-    //         });
+    //     fs.appendFile(file,`${day}-${month}-${year} ${hours}:${minutes}:${seconds}\n`, err => {
+    //        if(err)
+    //            throw 'Error!'.america;
     //     });
+    //
+    //     fs.close(fd , error => {
+    //         if(error)
+    //             throw 'Error!'.america;
+    //     });
+    // })
+
+    // Promises (Works but throws an error)
+    let p = new Promise((resolve, reject) => {
+        fs.open(file, 'a', (error, fd) => {
+           if(error)
+               throw '-------------Error---------------'.red;
+           resolve(fd);
+           reject('-------------Error---------------'.red);
+        });
+    });
+
+        p.then((response)=> {
+          fs.appendFile(file,`${day}-${month}-${year} ${hours}:${minutes}:${seconds}\n`, error=> {
+             if(error)
+                 throw '-------------Error---------------'.red;
+             console.log(response);
+             resolve(response);
+          });
+        })
+        .then((response) => {
+            fs.close(response, error => {
+               if(error)
+                   throw '-------------Error---------------'.red;
+            });
+        });
 
 },timeoutVar);
 

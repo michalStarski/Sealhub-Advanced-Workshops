@@ -16,8 +16,8 @@ app.get('/messages', (request, response) => {
    db.getMessages(response);
 });
 
-app.get(`/messages:id`, (request,response) =>{
-    let id = request.params.id.toString().slice(1);
+app.get(`/messages/:id`, (request,response) =>{
+    let id = request.params.id.toString();
     db.getMessage(id, response);
 });
 

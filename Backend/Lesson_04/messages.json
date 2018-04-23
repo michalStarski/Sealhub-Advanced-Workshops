@@ -1,1 +1,1 @@
-[{"message":"hello there","from":"michal","to":"kuba","id":1},{"message":"co tam","from":"michal","to":"kuba","id":2},{"message":"hello","id":3}]
+[{"message":"hello there","from":"michal","to":"kuba","id":1},{"message":"co tam","from":"michal","to":"kuba","id":2},{"message":"hello","id":3},{"message":"hello","from":"michal","to":"konrad","id":4},{"message":"test2","from":"michal","to":"kuba","id":5}]

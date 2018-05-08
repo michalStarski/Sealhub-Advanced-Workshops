@@ -1,0 +1,44 @@
+<div class="container" style="text-align: center">
+
+  <div class="row">
+    <div class="col">
+      <nav>
+      <ul class="menu">
+        <li class="menu-item" (click)="showCurrentTasks()">Current tasks list</li>
+        <li class="menu-item" (click)="showDeletedTasks()">Deleted tasks list</li>
+      </ul>
+      </nav>
+    </div>
+    <div class="col-8">
+      <form #tasks="ngForm" class="row align-items-center justify-content-around">
+        <label for="taskInput">Task Name</label>
+        <input type="text" id="taskInput" placeholder="Add task..." class="form-control" style="width:60%;"
+               [(ngModel)]="input" name="input"
+               required
+              (ngModelChange)="validate($event)"/>
+        <button type="submit" class="btn-success" (click)="addATask($event)">+</button>
+        <div [ngClass]="{ok: valid, notOk: !valid}">
+          <p>{{valid ? null : "Required"}}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col">
+        <ul *ngIf="!showDeleted" class="tasks">
+          <li *ngFor="let task of tasksArr index as i">
+            {{task}}
+            <button (click)="deleteATask(i)" class="btn-danger">Delete</button>
+          </li>
+          {{input}}
+          <li *ngIf="tasksArr.length === 0">No tasks found</li>
+        </ul>
+    <ul *ngIf="showDeleted" class="tasks">
+      <li *ngFor="let task of deletedArr index as i">
+        {{task}}
+        <button (click)="deletePerm(i)" class="btn-danger">Delete</button>
+      </li>
+      {{input}}
+      <li *ngIf="deletedArr.length === 0">No tasks found</li>
+    </ul>
+    </div>
+</div>

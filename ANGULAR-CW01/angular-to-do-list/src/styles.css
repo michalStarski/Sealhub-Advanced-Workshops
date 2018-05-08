@@ -1,0 +1,32 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.tasks, .menu{
+  list-style:none;
+}
+
+.tasks{
+  text-align: center;
+  min-height: 400px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 1px 1px 1px 1px #000000;
+}
+.tasks li{
+  margin: 1rem;
+}
+
+.ok{
+  display:none;
+}
+
+.notOk{
+  display:block;
+  color: #a94442;
+}
+
+.menu-item{
+  cursor:pointer;
+}
+
+.menu-item:hover{
+  color:#a94442;
+}

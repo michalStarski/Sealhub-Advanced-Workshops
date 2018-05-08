@@ -4,30 +4,31 @@ const assert = require('assert');
 const colors = require('colors');
 const ObjectId = require('mongodb').ObjectId;
 
+// Connection URL
+const url = 'mongodb://localhost:27017';
+// Database Name
+const dbName = 'messages';
+
+
 module.exports = {
     addMessage: (obj) => {
-        // Connection URL
-        const url = 'mongodb://localhost:27017';
-        // Database Name
-        const dbName = 'messages';
-
         // Use connect method to connect to the server
         MongoClient.connect(url, function(err, client) {
             assert.equal(null, err);
             console.log("Connected!");
             const db = client.db(dbName);
             const collection = db.collection('messages');
-            collection.insertOne(JSON.parse(obj), ()=> console.log('You added' + obj));
+            collection.insertOne(obj, (err) => {
+                if(err)
+                    throw err;
+                console.log('You added' + JSON.stringify(obj))
+            });
             client.close();
         });
 
     },
 
     getMessage: (id, response) => {
-
-        const url = 'mongodb://localhost:27017';
-        const dbName = 'messages';
-
         MongoClient.connect(url, (err, client) => {
            assert.equal(null, err);
            console.log('Connected!');
@@ -43,10 +44,6 @@ module.exports = {
     },
 
     getMessages: (response) => {
-        const url = 'mongodb://localhost:27017';
-
-        const dbName = 'messages';
-
         MongoClient.connect(url, (err, client)=> {
             assert.equal(err, null);
             console.log('Connected!');

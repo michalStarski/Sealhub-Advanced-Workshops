@@ -1,0 +1,15 @@
+<p>
+  testing works!
+</p>
+<p>{{test + ' a kot ma Ale'}}</p>
+<p *ngIf="isVisible">Visible text.</p>
+<p *ngIf="!isVisible">Invisible text.</p>
+<p *ngIf="!arr.length">The length of array arr equals
+  zero.</p>
+<p *ngIf="arr.length == 0">The length of array arr equals
+  zero.</p>
+<div>
+  <p *ngFor="let element of arr" (click)="clickMe($event)">{{ element }}</p>
+</div>
+<h1>*ngFor directive testing with click event:</h1>
+<p *ngFor="let el of arr" (click)="show(el)"><b>{{ el }}</b></p>

@@ -1,8 +1,5 @@
 const fs = require('fs');
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 const colors = require('colors');
-const ObjectId = require('mongodb').ObjectId;
 
 
 module.exports = {
@@ -10,7 +7,7 @@ module.exports = {
         console.log(obj);
         fs.readFile('messages.json', 'utf-8', (error, data) => {
             const json = JSON.parse(data);
-            json.push(Object.assign(JSON.parse(obj), {id: json.length + 1}));
+            json.push(Object.assign(obj, {id: json.length + 1}));
             fs.writeFile('messages.json', JSON.stringify(json), error => {
                 if (error)
                     throw error;

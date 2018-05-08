@@ -8,8 +8,8 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/messages', (request,response) => {
-    response.send((`you posted: ${JSON.stringify(request.body)}`).red);
-    db.addMessage(JSON.stringify(request.body));
+    response.send(request.body);
+    db.addMessage(request.body);
 });
 
 app.get('/messages', (request, response) => {
@@ -22,4 +22,4 @@ app.get(`/messages/:id`, (request,response) =>{
 });
 
 
-app.listen(8080);
+app.listen(8080, console.log('listening on port 8080 ...'.bgGreen));

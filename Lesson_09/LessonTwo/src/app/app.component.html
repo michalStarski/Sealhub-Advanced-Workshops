@@ -1,0 +1,7 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-inner-one [receivedText]="text" (out)="onOut($event)"></app-inner-one>
+<div>
+  <input type="text" name="input" [(ngModel)]="text">
+  <p>{{text}}</p>
+</div>
+<h3>{{received}}</h3>

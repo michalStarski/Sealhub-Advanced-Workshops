@@ -1,0 +1,13 @@
+.form{
+  display: grid;
+  flex-flow: column;
+  grid-gap:10px;
+  min-width:250px;
+  border: 5px solid #eeeeee;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+#submit{
+  width:50px;
+}

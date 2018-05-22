@@ -1,0 +1,43 @@
+<form #form="ngForm" (ngSubmit)="sendData(form.value)" class="form" ngNativeValidate>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" [(ngModel)]="form.name">
+  <label for="species">Species</label>
+  <select id="species" name="species" [(ngModel)]="form.species">
+    <option *ngFor="let element of species" value="{{element}}">{{element}}</option>
+  </select>
+  <label>Gender
+    <br>
+    Male <input type="radio" name="gender" id="radioMale" [(ngModel)]="form.gender" value="male">
+    Female <input type="radio" name="gender"  id="radioFemale" [(ngModel)]="form.gender" value="female">
+    n/a <input type="radio" name="gender" id="radioNA" [(ngModel)]="form.gender" value="n/a">
+  </label>
+
+  <label for="homeworld">Homeworld</label>
+  <input type="text" name="homeworld" id="homeworld" [(ngModel)]="form.homeworld">
+
+  <input type="submit" id="submit">
+</form>
+
+<table *ngIf="characters.length !== 0">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Species</th>
+    <th>Gender</th>
+    <th>Homeworld</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let character of characters">
+    <td>{{character.name}}</td>
+    <td>{{character.species}}</td>
+    <td>{{character.gender}}</td>
+    <td>{{character.homeworld}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="characters.length == 0">
+  No characters for now
+</div>

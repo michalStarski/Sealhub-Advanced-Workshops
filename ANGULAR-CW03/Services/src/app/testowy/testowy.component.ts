@@ -16,12 +16,12 @@ export class TestowyComponent implements OnInit, OnDestroy {
     homeworld: ''
   };
 
-  private species: Array<String> = [];
-  private characters: Array<Object> = [];
+  private species: Object = [];
+  private characters: Object = [];
   private subscribtions: Array<Subscription> = [];
 
   constructor(private testService: TestService) {
-    this.testService= testService;
+    this.testService = testService;
   }
 
   ngOnInit() {
@@ -37,7 +37,9 @@ export class TestowyComponent implements OnInit, OnDestroy {
   getData(): void{
     this.subscribtions.push(
       this.testService.getData().subscribe(
-        data => { this.characters = data; },
+        data => { 
+          this.characters = data; 
+        },
         error => { alert('Something went wrong!'); }
       )
     );
@@ -57,6 +59,15 @@ export class TestowyComponent implements OnInit, OnDestroy {
       this.testService.postData(form).subscribe(
         data => { this.getData() },
         error => { alert('Something went wrong!'); }
+      )
+    )
+  }
+
+  deleteCharacter(id: String){
+    this.subscribtions.push(
+      this.testService.deleteCharacter(id).subscribe(
+        data => { this.getData() },
+        error => alert('Something went wrong !')
       )
     )
   }

@@ -11,15 +11,19 @@ export class TestService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getData(): Observable<Any> {
+  getData(): Observable<Object> {
     return this.httpClient.get(`${this.url}characters`);
   }
 
-  getSpecies(): Observable<Any> {
+  getSpecies(): Observable<Object> {
     return this.httpClient.get(`${this.url}species`);
   }
 
-  postData(body: Object): Observable<Any>{
+  postData(body: Object): Observable<Object>{
     return this.httpClient.post(`${this.url}characters`, body)
+  }
+
+  deleteCharacter(id: String){
+    return this.httpClient.delete(`${this.url}characters/${id}`);
   }
 }

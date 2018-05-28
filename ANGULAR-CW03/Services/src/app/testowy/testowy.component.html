@@ -30,7 +30,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let character of characters">
-    <td>{{character.name}}</td>
+    <td (click)="deleteCharacter(character.id)" class="highlight">{{character.name}}</td>
     <td>{{character.species}}</td>
     <td>{{character.gender}}</td>
     <td>{{character.homeworld}}</td>
@@ -38,6 +38,6 @@
   </tbody>
 </table>
 
-<div *ngIf="characters.length == 0">
+<div *ngIf="characters.length === 0">
   No characters for now
 </div>

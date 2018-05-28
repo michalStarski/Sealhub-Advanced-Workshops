@@ -171,18 +171,6 @@
       "species": "Droid",
       "gender": "n/a",
       "homeworld": ""
-    },
-    {
-      "name": "abc",
-      "gender": "male",
-      "homeworld": "dsad",
-      "id": 20
-    },
-    {
-      "name": "abc",
-      "gender": "male",
-      "homeworld": "dsad",
-      "id": 21
     }
   ]
 }
